@@ -1,0 +1,87 @@
+/* breakpoints */
+/* media query */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none; }
+
+body {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: normal;
+  background: white;
+  color: black;
+  font-family: 'Open Sans', sans-serif; }
+
+section, header, footer, article {
+  width: 100%;
+  float: left;
+  position: relative; }
+
+#hero div {
+  padding: 0; }
+  #hero div.col-xs-8.col-sm-6.col-md-12.pull-right {
+    display: flex;
+    justify-content: center; }
+#hero ul {
+  width: 100%;
+  float: left;
+  position: relative;
+  margin: 0;
+  list-style: none;
+  background-color: #F15A24;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media (max-width: 990px) {
+    #hero ul {
+      height: auto;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column; } }
+  #hero ul li {
+    padding: 1em;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2em; }
+    #hero ul li:hover {
+      background: black;
+      cursor: pointer;
+      color: white; }
+#hero blockquote {
+  text-align: justify;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: .5em 10px;
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+  #hero blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: .1em;
+    margin-right: .25em;
+    vertical-align: -.4em; }
+#hero pre {
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  display: block;
+  font-size: 13px;
+  margin-bottom: 2em;
+  padding: 1em;
+  white-space: normal; }
+#hero code {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 0; }
+  #hero code span {
+    position: relative;
+    left: 10px; }
+
+/*# sourceMappingURL=style.css.map */
