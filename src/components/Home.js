@@ -7,10 +7,7 @@ export default class Home extends React.Component{
         
         this.state = {
             category:[],
-            icon_url:'',
-            id:'',
-            url:'',
-            value:'',
+            content:[],
             result:false
         }
 
@@ -31,32 +28,37 @@ export default class Home extends React.Component{
         axios.get('https://api.chucknorris.io/jokes/random?category='+getCategory)
         .then(response => { 
             this.setState({ 
-                icon_url:response.data.icon_url,
-                id:response.data.id,
-                url:response.data.url,
-                value:response.data.value,
-                result:true 
+                result:true,
+                content:response.data
             });
         })
         .catch(() => { console.log('Erro ao recuperar os dados'); });
     }
     
     render(){
-        
+
+        let content = [];
+
+        if( this.state.result ) {
+            for( let item in this.state.content ) {
+                content.push(item)
+            }
+        }
         let showContent = (
             <div className="col-xs-8 col-sm-6 col-md-12 pull-right">
                 <div className="controller">
-                    <img src={this.state.icon_url} />
+                    <img src={this.state.content['icon_url']} />
                     <blockquote>
-                        <p>{ this.state.value }</p>
+                        <p>{ this.state.content['value'] }</p>
                     </blockquote>
                     <pre>
                         <code className="response">
                             &#123;<br />
-                                <span>"icon_url" : "{ this.state.icon_url }",</span><br />
-                                <span>"id" : "{ this.state.id }",</span><br />
-                                <span>"url" : "{ this.state.url }",</span><br />
-                                <span>"value" : "{ this.state.value }"</span><br />
+                                { content.map((item, idx) => { 
+                                    return (
+                                        <div key={idx}><span>"{ item }" : "{ this.state.content[item] }",</span><br /></div>
+                                    )
+                                })}
                             &#125;<br />
                         </code>
                     </pre>
